@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Student CRUD</title>
+<script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100 min-h-screen p-10">
+
+<div class="max-w-6xl mx-auto">
+
+<!-- Header -->
+<div class="flex justify-between items-center mb-8">
+<h1 class="text-3xl font-bold">Student List</h1>
+
+<a href="/student/add-student" class="bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-500">
+➕ Add Student
+</a>
+</div>
+
+{{ student.id }}
+
+<!-- Cards -->
+<div class="grid md:grid-cols-3 gap-6">
+
+    {% for Student in students_data %}
+
+<!-- Card -->
+<div class="bg-white shadow-lg rounded-xl p-6">
+
+<h2 class="text-xl font-semibold mb-2">{{ Student.name }} </h2>
+<p class="text-gray-600">email: {{Student.email}}</p>
+<p class="text-gray-600 mb-4">Phone: {{Student.phone_number}} </p>
+
+<div class="flex gap-2">
+<a href="{% url 'update_student' Student.id %}" class="bg-yellow-500 text-white px-3 py-1 rounded hover:bg-yellow-600">Update</a>
+<a href="{% url 'delete_student' Student.id %}" class="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600">Delete</a>
+</div>
+</div>
+{% endfor %}
+
+
+</body>
+</html>
