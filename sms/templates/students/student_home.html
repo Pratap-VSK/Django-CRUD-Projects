@@ -20,8 +20,6 @@
 </a>
 </div>
 
-{{ student.id }}
-
 <!-- Cards -->
 <div class="grid md:grid-cols-3 gap-6">
 
@@ -30,6 +28,9 @@
 <!-- Card -->
 <div class="bg-white shadow-lg rounded-xl p-6">
 
+<h1>
+    {{ Student.id }}
+</h1>
 <h2 class="text-xl font-semibold mb-2">{{ Student.name }} </h2>
 <p class="text-gray-600">email: {{Student.email}}</p>
 <p class="text-gray-600 mb-4">Phone: {{Student.phone_number}} </p>
