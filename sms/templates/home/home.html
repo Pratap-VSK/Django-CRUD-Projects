@@ -1,13 +1,1254 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Angaar Batch 🔥</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@400;600;700&family=Noto+Sans+Devanagari:wght@700&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --fire1: #ff2200;
+    --fire2: #ff6600;
+    --fire3: #ffaa00;
+    --fire4: #ffdd00;
+    --dark: #0a0501;
+    --dark2: #130a02;
+    --dark3: #1e1008;
+    --card: #1a0c04cc;
+    --text: #f5e6d0;
+    --muted: #a07050;
+    --border: #ff440033;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Rajdhani', sans-serif;
+    background: var(--dark);
+    color: var(--text);
+    overflow-x: hidden;
+  }
+
+  /* ─── NOISE OVERLAY ─── */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.4;
+  }
+
+  /* ─── SCROLLBAR ─── */
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: var(--dark); }
+  ::-webkit-scrollbar-thumb { background: var(--fire2); border-radius: 3px; }
+
+  /* ─── NAV ─── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 48px;
+    background: linear-gradient(to bottom, #0a0501ee, transparent);
+    backdrop-filter: blur(6px);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav-logo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2rem;
+    letter-spacing: 4px;
+    background: linear-gradient(135deg, var(--fire1), var(--fire3));
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 32px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    transition: color 0.3s;
+  }
+
+  .nav-links a:hover { color: var(--fire3); }
+
+  /* ─── HERO ─── */
+  #hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    padding: 120px 24px 80px;
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 80% 60% at 50% 100%, #ff220022 0%, transparent 60%),
+      radial-gradient(ellipse 60% 40% at 30% 80%, #ff660011 0%, transparent 50%),
+      radial-gradient(ellipse 60% 40% at 70% 80%, #ff440011 0%, transparent 50%),
+      linear-gradient(to top, #1e0800, #0a0501 60%);
+  }
+
+    .hero-eyebrow {
+    font-size: 0.8rem;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    color: var(--fire2);
+    margin-bottom: 16px;
+    animation: fadeUp 0.8s ease both;
+  }
+
+  .hero-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(5rem, 15vw, 12rem);
+    line-height: 0.9;
+    letter-spacing: 8px;
+    background: linear-gradient(160deg, var(--fire4) 0%, var(--fire2) 40%, var(--fire1) 80%);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 0 40px #ff440044);
+    animation: fadeUp 0.9s 0.1s ease both;
+    position: relative;
+    z-index: 2;
+  }
+
+  .hero-hindi {
+    font-family: 'Noto Sans Devanagari', sans-serif;
+    font-size: clamp(1.2rem, 3vw, 2rem);
+    color: var(--fire3);
+    margin-top: 8px;
+    letter-spacing: 4px;
+    animation: fadeUp 1s 0.2s ease both;
+    opacity: 0.8;
+  }
+
+  .hero-tagline {
+    margin-top: 24px;
+    font-size: clamp(1rem, 2.5vw, 1.4rem);
+    color: var(--muted);
+    letter-spacing: 2px;
+    max-width: 600px;
+    animation: fadeUp 1s 0.3s ease both;
+  }
+
+  .hero-tagline span { color: var(--fire3); }
+
+  .hero-cta {
+    margin-top: 40px;
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    justify-content: center;
+    animation: fadeUp 1s 0.4s ease both;
+  }
+
+  .btn-primary {
+    padding: 14px 36px;
+    background: linear-gradient(135deg, var(--fire1), var(--fire2));
+    color: #fff;
+    border: none;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    text-decoration: none;
+    cursor: pointer;
+    clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
+    transition: filter 0.3s, transform 0.3s;
+    box-shadow: 0 0 30px #ff440044;
+  }
+
+  .btn-primary:hover { filter: brightness(1.3); transform: translateY(-2px); }
+
+  .btn-outline {
+    padding: 14px 36px;
+    background: transparent;
+    color: var(--fire2);
+    border: 1px solid var(--fire2);
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    text-decoration: none;
+    cursor: pointer;
+    clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
+    transition: background 0.3s, color 0.3s;
+  }
+
+  .btn-outline:hover { background: #ff440022; color: var(--fire3); }
+
+  .hero-stats {
+    margin-top: 64px;
+    display: flex;
+    gap: 48px;
+    flex-wrap: wrap;
+    justify-content: center;
+    animation: fadeUp 1s 0.5s ease both;
+    position: relative;
+    z-index: 2;
+  }
+
+  .stat-item { text-align: center; }
+
+  .stat-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 3rem;
+    color: var(--fire2);
+    line-height: 1;
+  }
+
+  .stat-label {
+    font-size: 0.75rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-top: 4px;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ─── SECTION COMMON ─── */
+  section { padding: 100px 24px; }
+
+  .section-inner { max-width: 1200px; margin: 0 auto; }
+
+  .section-label {
+    font-size: 0.7rem;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    color: var(--fire2);
+    margin-bottom: 12px;
+  }
+
+  .section-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(2.5rem, 6vw, 5rem);
+    letter-spacing: 4px;
+    line-height: 1;
+    background: linear-gradient(135deg, #fff 30%, var(--fire3));
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 16px;
+  }
+
+  .section-line {
+    width: 80px;
+    height: 3px;
+    background: linear-gradient(to right, var(--fire1), var(--fire3));
+    margin-bottom: 48px;
+  }
+
+  /* ─── ABOUT ─── */
+  #about { background: var(--dark2); }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: center;
+  }
+
+  .about-text p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--muted);
+    margin-bottom: 20px;
+  }
+
+  .about-text p span { color: var(--fire3); font-weight: 700; }
+
+  .about-values {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-top: 32px;
+  }
+
+  .value-card {
+    padding: 20px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--fire1);
+  }
+
+  .value-card .icon { font-size: 1.5rem; margin-bottom: 8px; }
+
+  .value-card h4 {
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: var(--fire3);
+    margin-bottom: 4px;
+  }
+
+  .value-card p { font-size: 0.85rem; color: var(--muted); line-height: 1.5; }
+
+  .about-visual {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .about-emblem {
+    width: 320px;
+    height: 320px;
+    border-radius: 50%;
+    border: 2px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    box-shadow: 0 0 80px #ff220022, inset 0 0 60px #ff220011;
+    animation: pulse-glow 3s ease-in-out infinite;
+  }
+
+  @keyframes pulse-glow {
+    0%, 100% { box-shadow: 0 0 40px #ff220022, inset 0 0 40px #ff220011; }
+    50%       { box-shadow: 0 0 100px #ff440044, inset 0 0 80px #ff220022; }
+  }
+
+  .emblem-text {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 6rem;
+    letter-spacing: 4px;
+    background: linear-gradient(160deg, var(--fire4), var(--fire1));
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 0 20px #ff4400aa);
+  }
+
+  .orbit {
+    position: absolute;
+    border-radius: 50%;
+    border: 1px dashed var(--border);
+    animation: spin var(--spd) linear infinite;
+  }
+
+  .orbit-dot {
+    width: 8px; height: 8px;
+    background: var(--fire2);
+    border-radius: 50%;
+    position: absolute;
+    top: -4px; left: 50%;
+    transform: translateX(-50%);
+    box-shadow: 0 0 12px var(--fire2);
+  }
+
+  @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+
+  /* ─── TEAM ─── */
+  #team { background: var(--dark); }
+
+  .team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 24px;
+  }
+
+  .member-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    padding: 28px 20px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s, border-color 0.3s;
+    cursor: default;
+  }
+
+  .member-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, #ff220011, transparent);
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  .member-card:hover { transform: translateY(-6px); border-color: #ff440055; }
+  .member-card:hover::before { opacity: 1; }
+
+  .member-avatar {
+    width: 80px; height: 80px;
+    border-radius: 50%;
+    margin: 0 auto 16px;
+    border: 2px solid var(--fire2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    background: linear-gradient(135deg, #1e0800, #3d1500);
+    box-shadow: 0 0 20px #ff440033;
+  }
+
+  .member-name {
+    font-weight: 700;
+    font-size: 1rem;
+    letter-spacing: 1px;
+    color: var(--text);
+    margin-bottom: 4px;
+  }
+
+  .member-role {
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--fire2);
+  }
+
+  .member-badge {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 2px 10px;
+    font-size: 0.7rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    background: #ff440022;
+    color: var(--fire3);
+    border: 1px solid #ff440044;
+  }
+
+  /* ─── SCHEDULE ─── */
+  #schedule { background: var(--dark3); }
+
+  .schedule-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+  }
+
+  .schedule-day {
+    background: var(--card);
+    border: 1px solid var(--border);
+    overflow: hidden;
+  }
+
+  .schedule-day-header {
+    padding: 14px 20px;
+    background: linear-gradient(135deg, #ff220015, #ff660008);
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .day-name {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.3rem;
+    letter-spacing: 3px;
+    color: var(--fire3);
+  }
+
+  .day-badge {
+    font-size: 0.65rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 2px 8px;
+    border: 1px solid var(--fire1);
+    color: var(--fire2);
+  }
+
+  .schedule-slot {
+    padding: 12px 20px;
+    border-bottom: 1px solid #ffffff08;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    transition: background 0.2s;
+  }
+
+  .schedule-slot:hover { background: #ff220008; }
+  .schedule-slot:last-child { border-bottom: none; }
+
+  .slot-time {
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+    color: var(--fire2);
+    min-width: 70px;
+    font-weight: 600;
+  }
+
+  .slot-subject {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text);
+  }
+
+  .slot-teacher {
+    font-size: 0.75rem;
+    color: var(--muted);
+    margin-top: 2px;
+  }
+
+  .slot-dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  /* ─── ACHIEVEMENTS ─── */
+  #achievements { background: var(--dark2); }
+
+  .achieve-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 24px;
+  }
+
+  .achieve-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    padding: 32px 24px;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s;
+  }
+
+  .achieve-card:hover { transform: translateY(-4px); }
+
+  .achieve-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(to right, var(--fire1), var(--fire3));
+  }
+
+  .achieve-rank {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 4rem;
+    line-height: 1;
+    background: linear-gradient(135deg, var(--fire4), var(--fire2));
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 8px;
+  }
+
+  .achieve-name {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 4px;
+  }
+
+  .achieve-exam {
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--fire2);
+    margin-bottom: 12px;
+  }
+
+  .achieve-desc { font-size: 0.9rem; color: var(--muted); line-height: 1.5; }
+
+  .achieve-trophy {
+    position: absolute;
+    top: 20px; right: 20px;
+    font-size: 2rem;
+    opacity: 0.3;
+  }
+
+  /* ─── GALLERY ─── */
+  #gallery { background: var(--dark); }
+
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 200px);
+    gap: 12px;
+  }
+
+  .gallery-item {
+    background: var(--card);
+    border: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.3s;
+  }
+
+  .gallery-item:hover { transform: scale(1.02); border-color: #ff440055; }
+
+  .gallery-item:nth-child(1) { grid-column: span 2; grid-row: span 2; font-size: 5rem; }
+  .gallery-item:nth-child(4) { grid-column: span 2; }
+
+  .gallery-caption {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    padding: 12px 16px;
+    background: linear-gradient(to top, #0a050199, transparent);
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    color: var(--text);
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  .gallery-item:hover .gallery-caption { opacity: 1; }
+
+  .gallery-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, #1e0800bb, #0a050188);
+  }
+
+  /* ─── RESOURCES ─── */
+  #resources { background: var(--dark3); }
+
+  .resources-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 20px;
+  }
+
+  .resource-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    padding: 24px;
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    transition: border-color 0.3s, transform 0.3s;
+    cursor: pointer;
+  }
+
+  .resource-card:hover { border-color: #ff440055; transform: translateX(4px); }
+
+  .resource-icon {
+    font-size: 2rem;
+    flex-shrink: 0;
+    width: 52px; height: 52px;
+    display: flex; align-items: center; justify-content: center;
+    background: #ff220011;
+    border: 1px solid var(--border);
+  }
+
+  .resource-info h4 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 4px;
+  }
+
+  .resource-info p { font-size: 0.85rem; color: var(--muted); line-height: 1.5; }
+
+  .resource-tag {
+    display: inline-block;
+    margin-top: 8px;
+    padding: 2px 8px;
+    font-size: 0.65rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    background: #ff440011;
+    color: var(--fire2);
+    border: 1px solid #ff440033;
+  }
+
+  /* ─── CONTACT ─── */
+  #contact { background: var(--dark2); }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: start;
+  }
+
+  .contact-info h3 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2rem;
+    letter-spacing: 3px;
+    color: var(--fire3);
+    margin-bottom: 16px;
+  }
+
+  .contact-info p { font-size: 1rem; color: var(--muted); line-height: 1.7; margin-bottom: 32px; }
+
+  .contact-item {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 20px;
+  }
+
+  .contact-item .c-icon {
+    width: 44px; height: 44px;
+    display: flex; align-items: center; justify-content: center;
+    background: #ff220011;
+    border: 1px solid var(--border);
+    font-size: 1.2rem;
+    flex-shrink: 0;
+  }
+
+  .c-label { font-size: 0.7rem; letter-spacing: 2px; text-transform: uppercase; color: var(--fire2); }
+  .c-value { font-size: 1rem; font-weight: 600; color: var(--text); }
+
+  .contact-form { display: flex; flex-direction: column; gap: 16px; }
+
+  .form-group { display: flex; flex-direction: column; gap: 8px; }
+
+  .form-label {
+    font-size: 0.7rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--fire2);
+  }
+
+  .form-input, .form-textarea {
+    padding: 14px 16px;
+    background: #ffffff05;
+    border: 1px solid var(--border);
+    color: var(--text);
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.3s;
+  }
+
+  .form-input:focus, .form-textarea:focus { border-color: var(--fire2); }
+  .form-textarea { min-height: 120px; resize: vertical; }
+
+  /* ─── FOOTER ─── */
+  footer {
+    padding: 40px 24px;
+    border-top: 1px solid var(--border);
+    text-align: center;
+    background: var(--dark);
+  }
+
+  .footer-logo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2.5rem;
+    letter-spacing: 6px;
+    background: linear-gradient(135deg, var(--fire1), var(--fire3));
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 8px;
+  }
+
+  .footer-tagline { font-size: 0.8rem; letter-spacing: 3px; color: var(--muted); margin-bottom: 24px; }
+
+  .footer-links { display: flex; gap: 24px; justify-content: center; flex-wrap: wrap; margin-bottom: 24px; }
+  .footer-links a { font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); text-decoration: none; transition: color 0.3s; }
+  .footer-links a:hover { color: var(--fire3); }
+
+  .footer-copy { font-size: 0.75rem; color: #ffffff22; letter-spacing: 1px; }
+
+  /* ─── DIVIDER ─── */
+  .fire-divider {
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(to right, transparent, var(--fire2), var(--fire1), var(--fire2), transparent);
+    opacity: 0.4;
+  }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 768px) {
+    nav { padding: 16px 20px; }
+    .nav-links { display: none; }
+    .about-grid, .contact-grid { grid-template-columns: 1fr; }
+    .gallery-grid { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
+    .gallery-item:nth-child(1) { grid-column: span 2; grid-row: span 1; }
+    .gallery-item:nth-child(4) { grid-column: span 2; }
+    .about-visual { display: none; }
+  }
+</style>
 </head>
 <body>
-    <h1>
-        This is the home page
-    </h1>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">🔥 ANGAAR</div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#team">Team</a></li>
+    <li><a href="#schedule">Schedule</a></li>
+    <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#resources">Resources</a></li>
+    <li><a href="#contact">Join Us</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg"></div>
+
+  <div class="hero-eyebrow">🔥 Ignite Your Potential · Est. 2024</div>
+  <h1 class="hero-title">ANGAAR</h1>
+  <div class="hero-hindi">अंगार बैच</div>
+  <p class="hero-tagline">Where <span>coal becomes diamond</span> under pressure — and <span>sparks become fire</span> through dedication.</p>
+
+  <div class="hero-cta">
+    <a href="#contact" class="btn-primary">Join the Batch</a>
+    <a href="#about" class="btn-outline">Learn More</a>
+  </div>
+
+  <div class="hero-stats">
+    <div class="stat-item">
+      <div class="stat-num">200+</div>
+      <div class="stat-label">Students</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">95%</div>
+      <div class="stat-label">Pass Rate</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">48</div>
+      <div class="stat-label">Top Ranks</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">12+</div>
+      <div class="stat-label">Expert Faculty</div>
+    </div>
+  </div>
+</section>
+
+<div class="fire-divider"></div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-inner">
+    <div class="about-grid">
+      <div class="about-text">
+        <div class="section-label">Who We Are</div>
+        <h2 class="section-title">The Angaar Philosophy</h2>
+        <div class="section-line"></div>
+        <p>
+          <span>Angaar Batch</span> is not just a study group — it's a forge. Like burning coal that radiates heat and light, every student here is trained to <span>shine under pressure</span> and burn brighter than ever.
+        </p>
+        <p>
+          Founded on the belief that <span>consistency beats talent</span>, our batch blends rigorous academics with peer-driven motivation. We don't just prepare for exams — we prepare for life.
+        </p>
+        <div class="about-values">
+          <div class="value-card">
+            <div class="icon">🎯</div>
+            <h4>Focused</h4>
+            <p>Laser-sharp preparation with structured study plans.</p>
+          </div>
+          <div class="value-card">
+            <div class="icon">🔥</div>
+            <h4>Passionate</h4>
+            <p>Every session fueled by hunger to succeed.</p>
+          </div>
+          <div class="value-card">
+            <div class="icon">🤝</div>
+            <h4>Together</h4>
+            <p>Peer learning and brotherhood/sisterhood.</p>
+          </div>
+          <div class="value-card">
+            <div class="icon">⚡</div>
+            <h4>Results</h4>
+            <p>Track record of top ranks across exams.</p>
+          </div>
+        </div>
+      </div>
+      <div class="about-visual">
+        <div class="orbit" style="width:360px;height:360px;--spd:20s;">
+          <div class="orbit-dot"></div>
+        </div>
+        <div class="orbit" style="width:280px;height:280px;--spd:14s;animation-direction:reverse;">
+          <div class="orbit-dot"></div>
+        </div>
+        <div class="about-emblem">
+          <div class="emblem-text">🔥</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="fire-divider"></div>
+
+<!-- TEAM -->
+<section id="team">
+  <div class="section-inner">
+    <div class="section-label">The Minds Behind the Flame</div>
+    <h2 class="section-title">Our Team</h2>
+    <div class="section-line"></div>
+    <div class="team-grid" style="grid-template-columns: repeat(3, 1fr);">
+      <div class="member-card">
+        <div class="member-avatar">🌐</div>
+        <div class="member-name">Divyanshu Khandelwal</div>
+        <div class="member-role">Full Stack Development</div>
+        <div class="member-badge">Lead Instructor</div>
+      </div>
+      <div class="member-card">
+        <div class="member-avatar">🧠</div>
+        <div class="member-name">Naman Sharma</div>
+        <div class="member-role">Data Structures & Algorithms</div>
+        <div class="member-badge">Lead Instructor</div>
+      </div>
+      <div class="member-card">
+        <div class="member-avatar">📊</div>
+        <div class="member-name">Gaurika Dhingra</div>
+        <div class="member-role">Data Analytics</div>
+        <div class="member-badge">Lead Instructor</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="fire-divider"></div>
+
+<!-- SCHEDULE -->
+<section id="schedule">
+  <div class="section-inner">
+    <div class="section-label">Weekly Routine</div>
+    <h2 class="section-title">Class Schedule</h2>
+    <div class="section-line"></div>
+    <div class="schedule-grid">
+      <div class="schedule-day">
+        <div class="schedule-day-header">
+          <div class="day-name">Monday</div>
+          <div class="day-badge">Day 1</div>
+        </div>
+        <div class="schedule-slot">
+          <div class="slot-dot" style="background:#ff4400"></div>
+          <div class="slot-time">7:00 AM</div>
+          <div><div class="slot-subject">Full Stack Dev</div><div class="slot-teacher">Divyanshu Khandelwal</div></div>
+        </div>
+        <div class="schedule-slot">
+          <div class="slot-dot" style="background:#4488ff"></div>
+          <div class="slot-time">9:30 AM</div>
+          <div><div class="slot-subject">DSA</div><div class="slot-teacher">Naman Sharma</div></div>
+        </div>
+        <div class="schedule-slot">
+          <div class="slot-dot" style="background:#ffaa00"></div>
+          <div class="slot-time">2:00 PM</div>
+          <div><div class="slot-subject">Doubt Session</div><div class="slot-teacher">All Instructors</div></div>
+        </div>
+      </div>
+      <div class="schedule-day">
+        <div class="schedule-day-header">
+          <div class="day-name">Tuesday</div>
+          <div class="day-badge">Day 2</div>
+        </div>
+        <div class="schedule-slot">
+          <div class="slot-dot" style="background:#44cc88"></div>
+          <div class="slot-time">7:00 AM</div>
+          <div><div class="slot-subject">Data Analytics</div><div class="slot-teacher">Gaurika Dhingra</div></div>
+        </div>
+        <div class="schedule-slot">
+          <div class="slot-dot" style="background:#ff4400"></div>
+          <div class="slot-time">9:30 AM</div>
+          <div><div class="slot-subject">Full Stack Dev</div><div class="slot-teacher">Divyanshu Khandelwal</div></div>
+        </div>
+        <div class="schedule-slot">
+          <div class="slot-dot" style="background:#4488ff"></div>
+          <div class="slot-time">2:00 PM</div>
+          <div><div class="slot-subject">DSA Practice</div><div class="slot-teacher">Naman Sharma</div></div>
+        </div>
+      </div>
+      <div class="schedule-day">
+        <div class="schedule-day-header">
+          <div class="day-name">Wednesday</div>
+          <div class="day-badge">Day 3</div>
+        </div>
+        <div class="schedule-slot">
+          <div class="slot-dot" style="background:#4488ff"></div>
+          <div class="slot-time">7:00 AM</div>
+          <div><div class="slot-subject">DSA</div><div class="slot-teacher">Naman Sharma</div></div>
+        </div>
+        <div class="schedule-slot">
+          <div class="slot-dot" style="background:#44cc88"></div>
+          <div class="slot-time">9:30 AM</div>
+          <div><div class="slot-subject">Data Analytics</div><div class="slot-teacher">Gaurika Dhingra</div></div>
+        </div>
+        <div class="schedule-slot">
+          <div class="slot-dot" style="background:#ffdd00"></div>
+          <div class="slot-time">2:00 PM</div>
+          <div><div class="slot-subject">Project Workshop</div><div class="slot-teacher">All Instructors</div></div>
+        </div>
+      </div>
+      <div class="schedule-day">
+        <div class="schedule-day-header">
+          <div class="day-name">Saturday</div>
+          <div class="day-badge">Special</div>
+        </div>
+        <div class="schedule-slot">
+          <div class="slot-dot" style="background:#ff2200"></div>
+          <div class="slot-time">8:00 AM</div>
+          <div><div class="slot-subject">Full Mock Test</div><div class="slot-teacher">All Subjects</div></div>
+        </div>
+        <div class="schedule-slot">
+          <div class="slot-dot" style="background:#ffaa00"></div>
+          <div class="slot-time">12:00 PM</div>
+          <div><div class="slot-subject">Result & Review</div><div class="slot-teacher">Analysis Session</div></div>
+        </div>
+        <div class="schedule-slot">
+          <div class="slot-dot" style="background:#ff6600"></div>
+          <div class="slot-time">3:00 PM</div>
+          <div><div class="slot-subject">Motivation Talk</div><div class="slot-teacher">Batch Head</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="fire-divider"></div>
+
+<!-- GALLERY -->
+<section id="gallery">
+  <div class="section-inner">
+    <div class="section-label">Memories & Moments</div>
+    <h2 class="section-title">Gallery</h2>
+    <div class="section-line"></div>
+    <div class="gallery-grid">
+      <div class="gallery-item">
+        <div class="gallery-overlay"></div>
+        <span>🎓</span>
+        <div class="gallery-caption">Annual Results Ceremony 2024</div>
+      </div>
+      <div class="gallery-item">
+        <div class="gallery-overlay"></div>
+        <span>📚</span>
+        <div class="gallery-caption">Study Marathon Session</div>
+      </div>
+      <div class="gallery-item">
+        <div class="gallery-overlay"></div>
+        <span>🏆</span>
+        <div class="gallery-caption">Toppers Felicitation</div>
+      </div>
+      <div class="gallery-item">
+        <div class="gallery-overlay"></div>
+        <span>🔬</span>
+        <div class="gallery-caption">Lab Practical Workshop</div>
+      </div>
+      <div class="gallery-item">
+        <div class="gallery-overlay"></div>
+        <span>🎯</span>
+        <div class="gallery-caption">Mock Test Championship</div>
+      </div>
+      <div class="gallery-item">
+        <div class="gallery-overlay"></div>
+        <span>🌟</span>
+        <div class="gallery-caption">Star Performers 2024</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="fire-divider"></div>
+
+<!-- RESOURCES -->
+<section id="resources">
+  <div class="section-inner">
+    <div class="section-label">Knowledge Arsenal</div>
+    <h2 class="section-title">Study Resources</h2>
+    <div class="section-line"></div>
+    <div class="resources-grid">
+      <!-- Full Stack -->
+      <div class="resource-card">
+        <div class="resource-icon">🌐</div>
+        <div class="resource-info">
+          <h4>Full Stack — HTML & CSS</h4>
+          <p>Foundation of web development: layouts, responsive design, Flexbox & Grid.</p>
+          <span class="resource-tag">By Divyanshu Khandelwal</span>
+        </div>
+      </div>
+      <div class="resource-card">
+        <div class="resource-icon">⚡</div>
+        <div class="resource-info">
+          <h4>Full Stack — JavaScript & React</h4>
+          <p>Core JS concepts, ES6+, React components, hooks and state management.</p>
+          <span class="resource-tag">By Divyanshu Khandelwal</span>
+        </div>
+      </div>
+      <div class="resource-card">
+        <div class="resource-icon">🖥️</div>
+        <div class="resource-info">
+          <h4>Full Stack — Backend & Databases</h4>
+          <p>Node.js, Express, REST APIs, MongoDB and deployment essentials.</p>
+          <span class="resource-tag">By Divyanshu Khandelwal</span>
+        </div>
+      </div>
+      <!-- DSA -->
+      <div class="resource-card">
+        <div class="resource-icon">🧠</div>
+        <div class="resource-info">
+          <h4>DSA — Arrays, Strings & Sorting</h4>
+          <p>Core problem-solving techniques, pattern recognition and complexity analysis.</p>
+          <span class="resource-tag">By Naman Sharma</span>
+        </div>
+      </div>
+      <div class="resource-card">
+        <div class="resource-icon">🌲</div>
+        <div class="resource-info">
+          <h4>DSA — Trees, Graphs & DP</h4>
+          <p>Advanced data structures, BFS/DFS, dynamic programming and greedy algorithms.</p>
+          <span class="resource-tag">By Naman Sharma</span>
+        </div>
+      </div>
+      <div class="resource-card">
+        <div class="resource-icon">📝</div>
+        <div class="resource-info">
+          <h4>DSA — Practice Sheet & Mock Tests</h4>
+          <p>Curated problem sets, timed contests and interview-ready question bank.</p>
+          <span class="resource-tag">By Naman Sharma</span>
+        </div>
+      </div>
+      <!-- Data Analytics -->
+      <div class="resource-card">
+        <div class="resource-icon">📊</div>
+        <div class="resource-info">
+          <h4>Analytics — Python & Pandas</h4>
+          <p>Data wrangling, cleaning and manipulation using Python's data stack.</p>
+          <span class="resource-tag">By Gaurika Dhingra</span>
+        </div>
+      </div>
+      <div class="resource-card">
+        <div class="resource-icon">📈</div>
+        <div class="resource-info">
+          <h4>Analytics — Data Visualization</h4>
+          <p>Matplotlib, Seaborn, Power BI dashboards and storytelling with data.</p>
+          <span class="resource-tag">By Gaurika Dhingra</span>
+        </div>
+      </div>
+      <div class="resource-card">
+        <div class="resource-icon">🤖</div>
+        <div class="resource-info">
+          <h4>Analytics — SQL & Machine Learning</h4>
+          <p>Database querying, regression models and real-world analytics projects.</p>
+          <span class="resource-tag">By Gaurika Dhingra</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="fire-divider"></div>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-inner">
+    <div class="section-label">Ready to Ignite?</div>
+    <h2 class="section-title">Join Angaar Batch</h2>
+    <div class="section-line"></div>
+    <div class="contact-grid">
+      <div class="contact-info">
+        <h3>Let's Light the Fire Together</h3>
+        <p>Applications are open for the next batch. Fill in the form or reach out to us directly. Limited seats — first come, first served.</p>
+        <div class="contact-item">
+          <div class="c-icon">📍</div>
+          <div>
+            <div class="c-label">Location</div>
+            <div class="c-value">Varanasi, Uttar Pradesh</div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="c-icon">📞</div>
+          <div>
+            <div class="c-label">Phone</div>
+            <div class="c-value">+91 98765 43210</div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="c-icon">✉️</div>
+          <div>
+            <div class="c-label">Email</div>
+            <div class="c-value">angaarbatch@gmail.com</div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="c-icon">⏰</div>
+          <div>
+            <div class="c-label">Office Hours</div>
+            <div class="c-value">Mon–Sat, 6 AM – 8 PM</div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="contact-form">
+          <div class="form-group">
+            <label class="form-label">Your Name</label>
+            <input class="form-input" type="text" placeholder="e.g. Rahul Verma" />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Phone Number</label>
+            <input class="form-input" type="tel" placeholder="+91 XXXXX XXXXX" />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Target Exam</label>
+            <input class="form-input" type="text" placeholder="e.g. JEE / NEET / Boards" />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Message</label>
+            <textarea class="form-textarea" placeholder="Tell us about your goals..."></textarea>
+          </div>
+          <button class="btn-primary" style="align-self:flex-start;" onclick="alert('🔥 Application received! We will contact you soon.')">
+            Submit Application
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">🔥 ANGAAR</div>
+  <div class="footer-tagline">अंगार — जहाँ कोयला हीरा बनता है</div>
+  <div class="footer-links">
+    <a href="#hero">Home</a>
+    <a href="#about">About</a>
+    <a href="#team">Team</a>
+    <a href="#schedule">Schedule</a>
+    <a href="#achievements">Results</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#resources">Resources</a>
+    <a href="#contact">Contact</a>
+  </div>
+  <div class="footer-copy">© 2024 Angaar Batch · All Rights Reserved · Made with 🔥 in Varanasi</div>
+</footer>
+
+<script>
+// Scroll-based fade-in
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.style.opacity = '1';
+      e.target.style.transform = 'translateY(0)';
+    }
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.member-card, .achieve-card, .resource-card, .schedule-day, .gallery-item, .value-card').forEach(el => {
+  el.style.opacity = '0';
+  el.style.transform = 'translateY(24px)';
+  el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+  observer.observe(el);
+});
+</script>
 </body>
 </html>

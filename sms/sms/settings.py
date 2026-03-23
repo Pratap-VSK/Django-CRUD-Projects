@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/6.0/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -119,3 +120,11 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/6.0/howto/static-files/
 
 STATIC_URL = 'static/'
+
+STATICFILES_DIRS = [
+    BASE_DIR / "demo_static",
+    ]
+
+#Media files
+MEDIA_URL = '/media/' #url jiske through media files access hongi, jab bhi hum media file ko access karenge to url me /media/ aayega, iske baad media file ka naam aayega
+MEDIA_ROOT = os.path.join(BASE_DIR, 'sms', 'media') #mera folder project ke andar create hoga jisme media files store hongi
