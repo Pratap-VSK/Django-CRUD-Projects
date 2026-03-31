@@ -121,9 +121,9 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
-STATICFILES_DIRS = [
-    BASE_DIR / "demo_static",
-    ]
+#STATICFILES_DIRS = [
+   # BASE_DIR / "demo_static",
+  #  ]
 
 #Media files
 MEDIA_URL = '/media/' #url jiske through media files access hongi, jab bhi hum media file ko access karenge to url me /media/ aayega, iske baad media file ka naam aayega

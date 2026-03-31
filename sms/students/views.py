@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 
-from .models import Student
+from .models import Student, Attendance
 
 # Create your views here.
 
@@ -8,9 +8,12 @@ def student_home(request):
 
     students_data = Student.objects.all()
 
+    attendance = Attendance.objects.all()
 
+#students_data is a list of all the students in the database, we are passing this list 
     data = {
-        "students_data": students_data
+        "students_data": students_data,
+        "attendance": attendance
     }
 
     return render(request, "students/student_home.html", data)
